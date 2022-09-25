@@ -41,7 +41,6 @@ games = [['adventure', 'Okami', '93', 'PS2 +m', '2006'],
 		 ['action', 'Gravity Rush', '83', 'PSVita', '2012'],
 		 ['rpg', 'Divinity: Original Sin II', '93', 'PC', '2017']]
 
+def add_game(genre, title, score = 'XX' , platform = 'n/a', year = 'n/a'):
+	games.append([genre, title, score, platform, year])
 
-print(genres)
-for game in games:
-	print(game[1])
