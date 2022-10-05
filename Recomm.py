@@ -9,5 +9,57 @@ from BinarySearchTree import *
 #  points from critics.""")
 # choice = input("Now then, type the beginning of the genre you'd like to play and let's see what we have ")
 
-test = BinarySearchTree(games[0])
-print(test)
+games.sort()
+
+# test = BinarySearchTree(games[0])
+# for i in range(1, len(games)):
+#     test.insert(games[i])
+
+tlist = [i for i in range(0,12)]
+print(tlist)
+
+# def heapify(lst):
+#     mid = len(lst)//2
+#     #BST = BinarySearchTree(lst.pop(mid))
+#     print(lst.pop(mid))
+#     print(lst)
+#     while lst != []:
+#         left = lst[0:mid]
+#         mid_left = len(left)//2
+#         right = lst[mid:]
+#         mid_right = -len(right)//2
+#         print(lst.pop(mid_left))
+#         print(lst)
+#         if lst == []:
+#             continue
+#         print(lst.pop(mid_right))
+#         print(lst)
+#         mid = len(lst)//2 -1 
+#     return lst
+
+
+# Recursive Heapify
+def sorted_array_to_bst(lst, BST = None):
+    if lst == []:
+        return BST
+    mid = len(lst)//2
+    if BST == None:
+        BST = BinarySearchTree(lst.pop(mid))
+    else:
+        BST.insert(lst.pop(mid))
+    left = sorted_array_to_bst(lst[0:mid], BST)
+    right = sorted_array_to_bst(lst[mid+1:], BST)
+    return left, right
+
+
+BST = sorted_array_to_bst(games)
+print(BST)
+
+# def heapify(lst, BST):
+#     if lst == []:
+#         return 
+#     mid = len(lst)//2
+#     BST.insert(lst.pop(mid))
+#     left = heapify(lst[0:mid], BST)
+#     right = heapify(lst[mid:], BST)
+#     return left, right
