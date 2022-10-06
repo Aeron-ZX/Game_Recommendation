@@ -26,14 +26,14 @@ class BinarySearchTree:
 		found_games = []
 		if self.genre == genre:
 			found_games.append(self)
-			if self.right is not None and self.right.genre == genre:
+			if self.right is not None and self.right.genre >= genre:
 				return found_games + self.right.get_game_by_genre(genre)
 			else:
 				return found_games
 		elif self.left != None and genre<self.genre:
-			return self.left.get_game_by_genre(genre)
+			return found_games + self.left.get_game_by_genre(genre)
 		elif self.right != None and genre>=self.genre:
-			return self.right.get_game_by_genre(genre)
+			return found_games + self.right.get_game_by_genre(genre)
 		else:
 			return None
 

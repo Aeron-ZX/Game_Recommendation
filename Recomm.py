@@ -52,7 +52,7 @@ def sorted_array_to_bst(lst, BST = None):
 
 BST = sorted_array_to_bst(games)
 print(BST)
-
+BST.print_tree()
 print(BST.get_game_by_genre("adventure"))
 
 
