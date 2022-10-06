@@ -33,9 +33,16 @@ class BinarySearchTree:
 		elif self.left != None and genre<self.genre:
 			return self.left.get_game_by_genre(genre)
 		elif self.right != None and genre>=self.genre:
-			return self.left.get_game_by_genre(genre)
+			return self.right.get_game_by_genre(genre)
 		else:
 			return None
+
+	def print_tree(self):
+		print(f"{self.genre[0:2]} {self.title} at Depth {self.depth}")
+		if self.left:
+			self.left.print_tree()
+		if self.right:
+			self.right.print_tree()
 
 	def __repr__(self):
 		return str(self.game)

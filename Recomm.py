@@ -15,8 +15,6 @@ games.sort()
 # for i in range(1, len(games)):
 #     test.insert(games[i])
 
-tlist = [i for i in range(0,12)]
-print(tlist)
 
 # def heapify(lst):
 #     mid = len(lst)//2
@@ -38,7 +36,7 @@ print(tlist)
 #     return lst
 
 
-# Recursive Heapify
+# Recursive function to sort an array so the elements can be inserted into a balanced BinarySearchTree
 def sorted_array_to_bst(lst, BST = None):
     if lst == []:
         return BST
@@ -48,18 +46,22 @@ def sorted_array_to_bst(lst, BST = None):
     else:
         BST.insert(lst.pop(mid))
     left = sorted_array_to_bst(lst[0:mid], BST)
-    right = sorted_array_to_bst(lst[mid+1:], BST)
-    return left, right
+    right = sorted_array_to_bst(lst[mid:], BST)
+    return left and right
 
 
 BST = sorted_array_to_bst(games)
 print(BST)
 
+print(BST.get_game_by_genre("adventure"))
+
+
+
 # def heapify(lst, BST):
 #     if lst == []:
 #         return 
 #     mid = len(lst)//2
-#     BST.insert(lst.pop(mid))
+#     print(lst.pop(mid))
 #     left = heapify(lst[0:mid], BST)
 #     right = heapify(lst[mid:], BST)
-#     return left, right
+#     return left
