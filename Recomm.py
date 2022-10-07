@@ -45,9 +45,25 @@ def check_genres(choice, genres):
 
 
 def print_games(genre):
-    print("games go here")
+    games_to_print = BST.get_game_by_genre(genre)
+    for game in games_to_print:
+        print(f"""
+            --------------------------------------------------
 
-check_genres(ask_genre(), genres)
+            {game.title}
+            Main genre: {game.genre.title()}
+            Score: {game.score}
+            Platform: {game.plat}
+            Year of release: {game.year}
+                    """)
+    again = input("Would you like to make another search? y/n ")
+    while again not in ["y", "n"]:
+        again = input("Please, press 'y' or 'n' only ")
+    if again == "y":
+        check_genres(ask_genre(), genres)
+    if again == "n":
+        print("We hope you enjoy these games!")
+
 
 
 #We use te build-in sort function to order the array by alphabetical order. 
@@ -80,7 +96,7 @@ print(BST)
 #BST.print_tree()
 #print(BST.get_game_by_genre("adventure"))
 
-
+check_genres(ask_genre(), genres)
 
 # def heapify(lst, BST):
 #     if lst == []:
