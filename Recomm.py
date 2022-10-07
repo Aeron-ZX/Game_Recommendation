@@ -8,6 +8,8 @@ print("""Hi there. You can use this little program to get a recommendation of a 
  has an average based on critics' scores and another based from users' scores.
  The games selected try to range from different platforms and year of publication. The bare minimum is a score of 80
  points from critics.
+ When showing the platform '+m' means that this game is multiplatform. The score shown belongs to the platform presented,
+ while other versions of this game in other platforms, may have separated scores.
  \n""")
 
 #This function is used to prompt the user to enter the characters to make the search
