@@ -21,10 +21,33 @@ def confirm(choice):
     if confirmation == "y":
         return choice
     if confirmation == "n":
-        return ask_genre()
+        return confirmation
+
+#This function crosses the user choice with the list of genres available
+def check_genres(choice, genres):
+    found_options = []
+    for genre in genres:
+        if genre.startswith(choice):
+            found_options.append(genre)
+    if found_options == []:
+        choice = """No matching genre has been found with these letters. If you don't know what you are looking for, 
+        some of the most popular genres are 'adventure', 'action' or 'rpg'. Now try again """
+    elif len(found_options) == 1:
+        confirmed_choice = confirm(found_options[0])
+        if confirmed_choice == "n":
+            check_genres(ask_genre(), genres)
+        else:
+            print_games(confirmed_choice)
+    else:
+        print(f"With these beginning letters you may select between these genres: {str(found_options)}")
+        print("\n")
+        check_genres(ask_genre(), genres)
 
 
+def print_games(genre):
+    print("games go here")
 
+check_genres(ask_genre(), genres)
 
 
 #We use te build-in sort function to order the array by alphabetical order. 
