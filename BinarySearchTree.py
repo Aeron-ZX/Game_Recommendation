@@ -37,10 +37,11 @@ class BinarySearchTree:
 		else:
 			return []
 
+	#Inorder traversal
 	def print_tree(self):
-		print(f"{self.genre[0:2]} {self.title} at Depth {self.depth}")
 		if self.left:
-			self.left.print_tree()
+			self.left.print_tree()		
+		print(f"{self.genre[0:2]} {self.title} at Depth {self.depth}")
 		if self.right:
 			self.right.print_tree()
 
